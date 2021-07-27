@@ -5,36 +5,51 @@
 {% endblock %}
 
 {% block body %}
-<div class="content">
-    <h1 style="text-align: center">Task Master</h1>
+
+<div class="container">
+<div class="col-sm" id="nenhuma">
+    <h1 style="text-align: center">To do list</h1>
     {% if tasks|length < 1 %}
-    <h4 style="text-align: center">There are no tasks. Create one below!</h4>
+    <h4 style="text-align: center; color: #9C1A1C;">Nenhuma tarefa, crie uma!</h4>
+        </div>
     {% else %}
-    <table>
-        <tr>
-            <th>Task</th>
-            <th>Added</th>
-            <th>Actions</th>
+
+<div class="col-sm" id="task_list">
+        <table class="table">
+         <thead>
+        <tr class="table-primary">
+            <th>Tarefa</th>
+            <th>Adicionado</th>
+            <th>Ações</th>
         </tr>
         {% for task in tasks %}
             <tr>
-                <td>{{ task.content }}</td>
-                <td>{{ task.date_created.date() }}</td>
-                <td>
-                    <a href="/delete/{{task.id}}">Delete</a>
+                <td class="table-light">{{ task.content }}</td>
+                <td class="table-light">{{ task.date_created.date() }}</td>
+                <td class="table-light">
+                    <a href="/delete/{{task.id}}">Deletar</a>
                     <br>
-                    <a href="/update/{{task.id}}">Update</a>
+                    <a href="/update/{{task.id}}">Editar</a>
                 </td>
             </tr>
+
+            </thead>
+  <tbody>
         {% endfor %}
-    </table>
     {% endif %}
 
-    <div class="form">
-        <form action="/" method="POST">
-            <input type="text" name="content" id="content">
-            <input type="submit" value="Add Task">
+<div class="row">
+        <form action="/" method="POST" >
+            <div class="col">
+            <input class="form-control" type="text" name="content" id="botao_adicionar" placeholder="Digite uma tarefa">
+            </div>
+            <div class="col">
+            <input type="submit" value="Adicionar Tarefa" id="botao_adicionar" class="btn btn-info">
+            </div>
         </form>
-    </div>
+</div>
+</div>
+</div>
+</div>
 </div>
 {% endblock %}

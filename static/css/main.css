@@ -1,4 +1,29 @@
+*{
+    color: rgba(0, 0, 0, 0.71);
+    font-family: 'Baloo Chettan 2', cursive;
+}
+
 body{
-    margin: 0;
-    font-family: sans-serif;
+    text-align: center;
+    padding-top: 5%;
+}
+
+table{
+    margin-top: 5%;
+}
+
+#task_list{
+    margin-top: 5%;
+    text-align: center;
+}
+
+#nenhuma{
+    color: #9C1A1C;
+    margin-bottom: 5%;
+    text-align: center;
+}
+
+#botao_adicionar{
+    float: left;
+    margin-top: 10px;
 }
